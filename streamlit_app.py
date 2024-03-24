@@ -1,3 +1,14 @@
+import subprocess
+import sys
+
+# Function to install packages
+def install_packages(package):
+    subprocess.check_call([sys.executable, "-m", "pip", "install", package])
+
+# Install Plotly
+install_packages("plotly")
+
+
 import streamlit as st
 import requests
 import pandas as pd
