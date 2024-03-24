@@ -1,9 +1,7 @@
 import streamlit as st
-
-import streamlit as st
 import requests
 import pandas as pd
-import plotly.graph_objects as go
+import plotly.graph_objs as go
 
 
 # Function to get stock data from Alpha Vantage API
