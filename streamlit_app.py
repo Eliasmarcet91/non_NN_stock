@@ -4,7 +4,6 @@ import requests
 import pandas as pd
 import plotly.graph_objs as go
 
-
 # Function to get stock data from Alpha Vantage API
 def get_stock_data(symbol, interval='daily'):
     # Your Alpha Vantage API key
@@ -29,7 +28,7 @@ def generate_signal(row):
     else:
         return 'Sell'
 
-def create_candlestick_chart(stock_data, interval='daily'):
+def create_candlestick_chart(stock_data, symbol, interval='daily'):
     fig = go.Figure(data=[go.Candlestick(x=stock_data.index,
                                          open=pd.to_numeric(stock_data['open']),
                                          high=pd.to_numeric(stock_data['high']),
@@ -88,11 +87,11 @@ def main():
 
     if daily_stock_data is not None:
         # Create daily candlestick chart
-        st.plotly_chart(create_candlestick_chart(daily_stock_data, 'daily'))
+        st.plotly_chart(create_candlestick_chart(daily_stock_data, symbol, 'daily'))
 
     if monthly_stock_data is not None:
         # Create monthly candlestick chart
-        st.plotly_chart(create_candlestick_chart(monthly_stock_data, 'monthly'))
+        st.plotly_chart(create_candlestick_chart(monthly_stock_data, symbol, 'monthly'))
     else:
         st.error("Failed to retrieve stock data")
 
