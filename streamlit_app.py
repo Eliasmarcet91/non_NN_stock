@@ -1,4 +1,4 @@
-pip install plotly
+!pip install plotly
 import streamlit as st
 import requests
 import pandas as pd
