@@ -4,10 +4,11 @@ import requests
 import pandas as pd
 import plotly.graph_objs as go
 
+ api_key = st.secrets["api_key"]
 # Function to get stock data from Alpha Vantage API
 def get_stock_data(symbol, interval='daily'):
     # Your Alpha Vantage API key
-    api_key = st.secrets["api_key"]
+   
     
     function = 'TIME_SERIES_DAILY' if interval == 'daily' else 'TIME_SERIES_MONTHLY'
     url = f'https://www.alphavantage.co/query?function={function}&symbol={symbol}&apikey={api_key}'
